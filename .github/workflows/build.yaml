@@ -12,8 +12,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '>=18.0.0'
-      - name: Get system packages
-        run: sudo apt-get update && sudo apt-get install ttfautohint libttfautohint-dev
+      - uses: ConorMacBride/install-package@v1
+        with:
+          apt: ttfautohint libttfautohint-dev
       - uses: actions/checkout@v4
         with:
           repository: 'be5invis/Iosevka'
