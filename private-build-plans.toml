@@ -79,5 +79,5 @@ shape = 600
 menu = 5
 css = "normal"
 
-[buildPlans.IosevkaCustom.metricOverride]
-leading = 1250
+[buildPlans.IosevkaClear.metricOverride]
+leading = 1500
