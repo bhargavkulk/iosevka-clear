@@ -178,3 +178,6 @@ decorative-angle-brackets = "short"
 shape = 600
 menu = 5
 css = "normal"
+
+[buildPlans.IosevkaClearType.metricOverride]
+leading = 1500
