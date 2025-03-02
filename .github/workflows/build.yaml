@@ -30,12 +30,20 @@ jobs:
           repository: 'be5invis/Iosevka'
           path: 'src'
 
-      - name: Build ${{ matrix.fontName }} font
+      - name: Build ${{ matrix.fontName }}
         run: |
           cp private-build-plans.toml src/private-build-plans.toml
           cd src
           npm install
           npm run build -- ttf::${{ matrix.fontName }}
 
-      - name: List all files in a directory
-        run: ls -la src/dist/
+      - name: Zip ${{ matrix.fontName }}.zip
+        run: |
+          mkdir -p artifacts
+          zip -r artifacts/${{ matrix.fontName }}.zip src/dist/${{ matrix.fontName }}
+
+      - name: Upload ${{ matrix.fontName }}.zip to release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: 0.0.2
+          files: artifacts/${{ matrix.name }}.zip
