@@ -46,4 +46,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: 0.0.2
-          files: artifacts/${{ matrix.name }}.zip
+          files: artifacts/${{ matrix.fontName }}.zip
