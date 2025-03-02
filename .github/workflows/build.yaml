@@ -26,7 +26,15 @@ jobs:
           npm install
           sed -i '/release = true/d' build-plans.toml
           npm run build -- release:archives
-      - name: List all files in a directory
-        run: ls -la src/
-      - name: List all files in a directory
-        run: ls -la src/release-archives
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: 0.0.1
+          files: |
+            src/release-archives/PkgTTC-IosevkaClear-33.0.0.zip
+            src/release-archives/PkgTTF-IosevkaClear-33.0.0.zip
+            src/release-archives/PkgTTF-Unhinted-IosevkaClear-33.0.0.zip
+            src/release-archives/PkgWebFont-IosevkaClear-33.0.0.zip
+            src/release-archives/PkgWebFont-Unhinted-IosevkaClear-33.0.0.zip
+            src/release-archives/SuperTTC-IosevkaClear-33.0.0.zip
+          body: release
