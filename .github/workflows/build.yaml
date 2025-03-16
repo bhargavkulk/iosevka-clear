@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        fontName: ["IosevkaClear", "IosevkaClearType"]
+        fontName: ["IosevkaClear", "IosevkaClearType", "IosevkaClearTerm"]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -45,5 +45,5 @@ jobs:
       - name: Upload ${{ matrix.fontName }}.zip to release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: 0.0.3
+          tag_name: 0.0.4
           files: artifacts/${{ matrix.fontName }}.zip
